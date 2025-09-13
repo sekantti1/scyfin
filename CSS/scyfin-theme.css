@@ -1186,9 +1186,9 @@ html:not(:has(#reactRoot main)) {
 .chapterThumbText {
     text-align: center !important;
 }
-.chapterThumbText-dim {
+/* .chapterThumbText-dim {
     display: none !important;
-}
+} */
 
 /* Support for IntroSkipper plugin */
 #skipIntro .btnSkipIntro {
