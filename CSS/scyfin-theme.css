@@ -433,8 +433,9 @@ html,
     width: 8px !important;
     border-radius: 2px !important;
 }
-.mdl-slider-hoverthumb:hover::-moz-range-thumb {
-    transform: scaleY(2);
+.mdl-slider-hoverthumb:hover::-moz-range-thumb,
+.mdl-slider-hoverthumb:focus::-moz-range-thumb {
+    transform: scaleY(2) !important;
     background: #fff !important;
 }
 /* Webkit */
@@ -444,8 +445,9 @@ html,
     width: 8px !important;
     border-radius: 2px !important;
 }
-.mdl-slider-hoverthumb:hover::-webkit-slider-thumb {
-    transform: scaleY(2);
+.mdl-slider-hoverthumb:hover::-webkit-slider-thumb,
+.mdl-slider-hoverthumb:focus::-webkit-slider-thumb {
+    transform: scaleY(2) !important;
     background: #fff !important;
 }
 
@@ -502,11 +504,12 @@ html,
 #skipIntro .paper-icon-button-light:hover:not(:disabled) {
     color: #FFF !important;
 }
-.sliderContainer:has(.mdl-slider-hoverthumb:not(:hover)) .sliderMarker {
+.sliderContainer:has(.mdl-slider-hoverthumb) .sliderMarker {
     opacity: 0 !important;
     transition: 0.2s !important;
 }
-.sliderContainer:has(.mdl-slider-hoverthumb:hover) .sliderMarker {
+.sliderContainer:has(.mdl-slider-hoverthumb:hover) .sliderMarker,
+.sliderContainer:has(.mdl-slider-hoverthumb:focus) .sliderMarker  {
     opacity: 1 !important;
     transition: 0.2s !important;
     height: 10px !important;
