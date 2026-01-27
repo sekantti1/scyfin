@@ -333,7 +333,7 @@ html,
 .layout-mobile .headroom--unpinned {
     transform: none;
 }
-.layout-mobile .headroom--unpinned:has(.headerTabs.sectionTabs:not(.hide))  {
+.layout-mobile .headroom--unpinned:has(.headerTabs.sectionTabs > :not(.hide))  {
     transform: translateY(-50%);
 }
 .layout-mobile .headroom--not-top {
@@ -342,15 +342,17 @@ html,
 }
 .layout-mobile .headroom--not-top .headerRight {
     background: none !important;
+    backdrop-filter: none !important;
 }
 .layout-mobile .headroom--top,
-.layout-mobile .headroom--not-top:has(.headerTabs.sectionTabs:not(.hide)) {
+.layout-mobile .headroom--not-top:has(.headerTabs.sectionTabs > :not(.hide)) {
     background: transparent !important;
     backdrop-filter: none !important;
 }
 .layout-mobile .headroom--top .headerRight ,
-.layout-mobile .headroom--not-top:has(.headerTabs.sectionTabs:not(.hide)) .headerRight {
+.layout-mobile .headroom--not-top:has(.headerTabs.sectionTabs > :not(.hide)) .headerRight {
     background: var(--primary-background-transparent) !important;
+    backdrop-filter: blur(var(--blur)) !important;
 }
 @media (max-width: 380px) {
     .layout-mobile .pageTitle:not(.pageTitleWithLogo):not(:empty) {
@@ -372,7 +374,7 @@ html,
     .layout-mobile .libraryPage:not(.noSecondaryNavPage) {
         padding-top: 9.5em !important;
     }
-    .layout-mobile .headroom--unpinned:has(.headerTabs.sectionTabs:not(.hide)):has(.pageTitle:not(.pageTitleWithLogo):not(:empty)) {
+    .layout-mobile .headroom--unpinned:has(.headerTabs.sectionTabs > :not(.hide)):has(.pageTitle:not(.pageTitleWithLogo):not(:empty)) {
         transform: translateY(-60%);
     }
 }
