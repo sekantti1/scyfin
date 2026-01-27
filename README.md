@@ -38,6 +38,12 @@ This will disable backdrops on every page except the media details. Backdrops mu
 @import url('https://cdn.jsdelivr.net/gh/loof2736/scyfin@latest/CSS/disable-backdrops-navigation.css');
 ```
 
+### List view in "Identify" search
+Changes the search results in the "Identify" menu from a grid to a list. Useful for identifying items with long names
+```
+@import url('https://cdn.jsdelivr.net/gh/loof2736/scyfin@latest/CSS/identify-list-view.css');
+```
+
 ---
 
 ### **Themes:**
