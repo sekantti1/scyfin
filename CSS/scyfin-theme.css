@@ -878,6 +878,13 @@ html,
     }
 }
 
+/* Chapter selector labels */
+.layout-desktop .chapterCard .innerCardFooter {
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 3px 15px 5px 5px !important
+}
+
 
 
 /* Live TV */
