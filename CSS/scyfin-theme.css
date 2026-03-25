@@ -871,10 +871,10 @@ html,
 /* Move up content if no backdrop image is present */
 @supports selector(:has(*)) {
     .layout-desktop:not(:has(.backdropContainer .backdropImage)) #itemBackdrop {
-        height: 90px !important;
+        height: 165px !important;
     }
     .layout-desktop:not(:has(.backdropContainer .backdropImage)) .mainDetailButtons {
-        margin-top: 200px !important;
+        margin-top: 70px !important;
     }
 }
 
