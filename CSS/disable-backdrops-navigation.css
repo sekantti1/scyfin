@@ -1,0 +1,7 @@
+/* Disable backdrops everywhere except media details page */
+body.withSectionTabs .backgroundContainer.withBackdrop {
+    background: var(--primary-background-color) !important;
+}
+body.withSectionTabs .backgroundContainer.withBackdrop + div .mainDrawer {
+    background: var(--secondary-background-color) !important;
+}

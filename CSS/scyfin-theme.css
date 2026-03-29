@@ -333,7 +333,7 @@ html,
 .layout-mobile .headroom--unpinned {
     transform: none;
 }
-.layout-mobile .headroom--unpinned:has(.headerTabs.sectionTabs:not(.hide))  {
+.layout-mobile .headroom--unpinned:has(.headerTabs.sectionTabs > :not(.hide))  {
     transform: translateY(-50%);
 }
 .layout-mobile .headroom--not-top {
@@ -342,15 +342,17 @@ html,
 }
 .layout-mobile .headroom--not-top .headerRight {
     background: none !important;
+    backdrop-filter: none !important;
 }
 .layout-mobile .headroom--top,
-.layout-mobile .headroom--not-top:has(.headerTabs.sectionTabs:not(.hide)) {
+.layout-mobile .headroom--not-top:has(.headerTabs.sectionTabs > :not(.hide)) {
     background: transparent !important;
     backdrop-filter: none !important;
 }
 .layout-mobile .headroom--top .headerRight ,
-.layout-mobile .headroom--not-top:has(.headerTabs.sectionTabs:not(.hide)) .headerRight {
+.layout-mobile .headroom--not-top:has(.headerTabs.sectionTabs > :not(.hide)) .headerRight {
     background: var(--primary-background-transparent) !important;
+    backdrop-filter: blur(var(--blur)) !important;
 }
 @media (max-width: 380px) {
     .layout-mobile .pageTitle:not(.pageTitleWithLogo):not(:empty) {
@@ -372,7 +374,7 @@ html,
     .layout-mobile .libraryPage:not(.noSecondaryNavPage) {
         padding-top: 9.5em !important;
     }
-    .layout-mobile .headroom--unpinned:has(.headerTabs.sectionTabs:not(.hide)):has(.pageTitle:not(.pageTitleWithLogo):not(:empty)) {
+    .layout-mobile .headroom--unpinned:has(.headerTabs.sectionTabs > :not(.hide)):has(.pageTitle:not(.pageTitleWithLogo):not(:empty)) {
         transform: translateY(-60%);
     }
 }
@@ -431,8 +433,9 @@ html,
     width: 8px !important;
     border-radius: 2px !important;
 }
-.mdl-slider-hoverthumb:hover::-moz-range-thumb {
-    transform: scaleY(2);
+.mdl-slider-hoverthumb:hover::-moz-range-thumb,
+.mdl-slider-hoverthumb:focus::-moz-range-thumb {
+    transform: scaleY(2) !important;
     background: #fff !important;
 }
 /* Webkit */
@@ -442,8 +445,9 @@ html,
     width: 8px !important;
     border-radius: 2px !important;
 }
-.mdl-slider-hoverthumb:hover::-webkit-slider-thumb {
-    transform: scaleY(2);
+.mdl-slider-hoverthumb:hover::-webkit-slider-thumb,
+.mdl-slider-hoverthumb:focus::-webkit-slider-thumb {
+    transform: scaleY(2) !important;
     background: #fff !important;
 }
 
@@ -500,11 +504,12 @@ html,
 #skipIntro .paper-icon-button-light:hover:not(:disabled) {
     color: #FFF !important;
 }
-.sliderContainer:has(.mdl-slider-hoverthumb:not(:hover)) .sliderMarker {
+.sliderContainer:has(.mdl-slider-hoverthumb) .sliderMarker {
     opacity: 0 !important;
     transition: 0.2s !important;
 }
-.sliderContainer:has(.mdl-slider-hoverthumb:hover) .sliderMarker {
+.sliderContainer:has(.mdl-slider-hoverthumb:hover) .sliderMarker,
+.sliderContainer:has(.mdl-slider-hoverthumb:focus) .sliderMarker  {
     opacity: 1 !important;
     transition: 0.2s !important;
     height: 10px !important;
@@ -659,7 +664,7 @@ html,
 }
 
 /* Mobile media details page */
-.layout-mobile .itemDetailsGroup {
+.layout-mobile .itemDetailsGroup:has(> :not(.hide)) {
     background: var(--secondary-background-color) !important;
     padding: 15px 20px 5px 20px !important;
     border-radius: var(--rounded-cards) !important;
@@ -714,7 +719,7 @@ html,
     padding: 0px 20px 10px 20px !important;
 }
 /* Fix content shifting when clicking "Show more" on a long description */
-.layout-desktop .detailSectionContent .overview {
+.detailSectionContent .overview {
     display: -webkit-box !important;
 }
 
@@ -866,11 +871,18 @@ html,
 /* Move up content if no backdrop image is present */
 @supports selector(:has(*)) {
     .layout-desktop:not(:has(.backdropContainer .backdropImage)) #itemBackdrop {
-        height: 90px !important;
+        height: 165px !important;
     }
     .layout-desktop:not(:has(.backdropContainer .backdropImage)) .mainDetailButtons {
-        margin-top: 200px !important;
+        margin-top: 70px !important;
     }
+}
+
+/* Chapter selector labels */
+.layout-desktop .chapterCard .innerCardFooter {
+    display: flex !important;
+    flex-direction: row !important;
+    padding: 3px 15px 5px 5px !important
 }
 
 
@@ -1099,23 +1111,23 @@ html,
 /* Plugin support */
 
 /* Media Bar */
-.layout-desktop #slides-container {
+#slides-container {
     margin: 125px 50px 0 300px !important;
     width: auto !important;
     border-radius: var(--rounded-cards) !important;
     height: 58% !important;
 }
-.layout-desktop #slides-container .backdrop-container,
-.layout-desktop #slides-container .backdrop-overlay,
-.layout-desktop #slides-container .backdrop,
-.layout-desktop #slides-container .gradient-overlay {
+#slides-container .backdrop-container,
+#slides-container .backdrop-overlay,
+#slides-container .backdrop,
+#slides-container .gradient-overlay {
     mask-image: none !important;
     -webkit-mask-image: none !important;
 }
-.layout-desktop #slides-container .pause-button {
+#slides-container .pause-button {
     top: 1rem !important;
 }
-.layout-desktop #slides-container .logo-container {
+#slides-container .logo-container {
     top: 8vh !important;
 }
 /* Scaling */
@@ -1134,5 +1146,18 @@ html,
     }
     .layout-desktop #slides-container .button-container {
         top: calc(50% + 15vh) !important;
+    }
+}
+/* Mobile styling */
+.layout-mobile #slides-container {
+    margin: 120px 3.3% 0 3.3% !important;
+    height: calc(51vh + 7.5em) !important;
+}
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    .layout-mobile #slides-container .logo-container {
+        top: 50% !important;
+    }
+    .layout-mobile #slides-container .button-container {
+        top: calc(50% + 23vh) !important;
     }
 }

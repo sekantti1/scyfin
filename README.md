@@ -32,6 +32,18 @@ Jellyfin 10.10.X and lower
 @import url('https://cdn.jsdelivr.net/gh/loof2736/scyfin@latest/CSS/disable-static-drawer.css');
 ```
 
+### Disable backdrops on navigation pages
+This will disable backdrops on every page except the media details. Backdrops must be enabled in the client settings
+```
+@import url('https://cdn.jsdelivr.net/gh/loof2736/scyfin@latest/CSS/disable-backdrops-navigation.css');
+```
+
+### List view in "Identify" search
+Changes the search results in the "Identify" menu from a grid to a list. Useful for identifying items with long names
+```
+@import url('https://cdn.jsdelivr.net/gh/loof2736/scyfin@latest/CSS/identify-list-view.css');
+```
+
 ---
 
 ### **Themes:**
