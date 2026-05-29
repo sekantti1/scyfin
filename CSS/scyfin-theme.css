@@ -870,10 +870,11 @@ html,
 }
 /* Move up content if no backdrop image is present */
 @supports selector(:has(*)) {
-    .layout-desktop:not(:has(.backdropContainer .backdropImage)) #itemBackdrop {
+    .layout-desktop:not(:has(.backdropContainer .backdropImage, .detailLogo)) #itemBackdrop {
         height: 165px !important;
     }
-    .layout-desktop:not(:has(.backdropContainer .backdropImage)) .mainDetailButtons {
+
+    .layout-desktop:not(:has(.backdropContainer .backdropImage, .detailLogo)) .mainDetailButtons {
         margin-top: 70px !important;
     }
 }
@@ -940,6 +941,18 @@ html,
 .layout-desktop:has(.nowPlayingBar:not(.hide)) .page,
 .layout-desktop:has(.nowPlayingBar:not(.hide)) .pageWithAbsoluteTabs .pageTabContent {
     padding-bottom: calc(env(safe-area-inset-bottom) + 8em) !important;
+}
+
+/* Fix album list alignment on artist page */
+.layout-mobile div[data-type="MusicAlbum"] .itemsContainer {
+    padding-right: 0 !important;
+    gap: 0 1.2em !important;
+}
+.layout-mobile div[data-type="MusicAlbum"] .itemsContainer .overflowSquareCard {
+    width: 42.9vw !important;
+}
+.layout-mobile div[data-type="MusicAlbum"] .itemsContainer .overflowSquareCard .cardBox {
+    margin-right: 0 !important;
 }
 
 
@@ -1015,6 +1028,10 @@ html,
     color: rgba(255, 255, 255, 0.5) !important;
     z-index: 1 !important;
     transition: none !important;
+}
+/* Move "forgot password" button if the "cancel" button is hidden */
+.layout-desktop #loginPage:has(.manualLoginForm .btnCancel.hide) .readOnlyContent:has(.btnManual.hide) .btnForgotPassword {
+    top: -146px !important;
 }
 /* User cards */
 .layout-desktop #loginPage .squareCard {
