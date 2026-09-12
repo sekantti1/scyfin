@@ -116,8 +116,10 @@ progress::-webkit-progress-value {
     margin-top: 15px !important;
 }
 /* Shift content to the right */
-.layout-desktop #reactRoot:has(
-  > div:not([style*="display: none"], [style*="display:none"]) > .mainDrawer
+.layout-desktop :where(
+  #reactRoot:has(
+    > div:not([style*="display: none"], [style*="display:none"]) > .mainDrawer
+  )
 ) .libraryPage {
   margin-left: 250px !important;
 }
